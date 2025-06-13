@@ -1,132 +1,150 @@
 # Housing Prices Predictive Analysis
 
-## Dataset Content
+## Project Overview
 
-This project uses the Housing Prices Dataset, a publicly available dataset containing detailed records on residential homes.
+This project delivers a data-driven, interactive application to support real estate price estimation in Ames, Iowa.  
+It helps identify the most influential features driving house prices and predict values for both inherited and user-defined properties.
 
-**Data Source:** [Housing Prices Dataset (Kaggle)](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data)
-
-**Selected Features in the Dataset:**
-
-| Feature | Description | Range / Values |
-|--------|-------------|----------------|
-| 1stFlrSF | First Floor square feet | 334 – 4692 |
-| 2ndFlrSF | Second Floor square feet | 0 – 2065 |
-| BedroomAbvGr | Bedrooms above ground level | 0 – 8 |
-| BsmtExposure | Basement exposure level | Gd, Av, Mn, No, None |
-| BsmtFinType1 | Type of basement finish | GLQ, ALQ, BLQ, Rec, LwQ, Unf, None |
-| BsmtFinSF1 | Finished basement area (type 1) | 0 – 5644 |
-| BsmtUnfSF | Unfinished basement area | 0 – 2336 |
-| TotalBsmtSF | Total basement area | 0 – 6110 |
-| GarageArea | Garage size in square feet | 0 – 1418 |
-| GarageFinish | Garage interior finish | Fin, RFn, Unf, None |
-| GarageYrBlt | Garage year built | 1900 – 2010 |
-| GrLivArea | Above ground living area | 334 – 5642 |
-| KitchenQual | Kitchen quality | Ex, Gd, TA, Fa, Po |
-| LotArea | Lot size in square feet | 1300 – 215245 |
-| LotFrontage | Street frontage (linear feet) | 21 – 313 |
-| MasVnrArea | Masonry veneer area | 0 – 1600 |
-| EnclosedPorch | Enclosed porch area | 0 – 286 |
-| OpenPorchSF | Open porch area | 0 – 547 |
-| OverallCond | Overall condition (1 = worst, 10 = best) | 1 – 10 |
-| OverallQual | Overall quality (1 = worst, 10 = best) | 1 – 10 |
-| WoodDeckSF | Wood deck area | 0 – 736 |
-| YearBuilt | Year built | 1872 – 2010 |
-| YearRemodAdd | Remodel year | 1950 – 2010 |
-| SalePrice | House sale price | 34,900 – 755,000 |
-
-**Target Variable:**  
-`SalePrice`: the final price of each home sale.
+The end product is a Streamlit dashboard for both business users and technical audiences.
 
 ---
 
-## Project Template Repository
+## Dataset Content
 
-This project is built on a standardized template for machine learning lifecycle management and dashboard deployment.
+**Source:** [Housing Prices Dataset (Kaggle)](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data)
 
-**Template Repo:** https://github.com/igiraneza26/housing-prices.git
+The dataset contains 79 explanatory variables describing residential homes in Ames, Iowa, including:
 
-This template includes:
-- Folder scaffolding for data, notebooks, models, and deployment
-- ML pipeline integration
-- Streamlit-compatible dashboard components
+| Feature         | Description                             | Range / Values           |
+|-----------------|-----------------------------------------|---------------------------|
+| GrLivArea       | Above ground living area                | 334 – 5642 sq ft          |
+| GarageArea      | Size of garage in sq ft                 | 0 – 1418                  |
+| TotalBsmtSF     | Total basement area                     | 0 – 6110 sq ft            |
+| OverallQual     | Overall material and finish quality     | 1 (Very Poor) – 10 (Excellent) |
+| YearBuilt       | Original construction year              | 1872 – 2010               |
+| LotArea         | Lot size                                | 1300 – 215245 sq ft       |
+| KitchenQual     | Kitchen quality                         | Ex, Gd, TA, Fa, Po        |
+| ...             | ...                                     | ...                       |
+
+**Target Variable:**  
+`SalePrice` — the final selling price of each home.
+
+---
+
+## Deployed Application
+
+**Live Dashboard:**  
+[Click here to try the app](https://your-streamlit-app-url)  
+(Replace with your actual deployment link)
 
 ---
 
 ## Business Requirements
 
-1. **Correlation Discovery**  
-   Identify which house attributes are most strongly correlated with sale price using visualizations.
+1. Correlation Discovery  
+   Identify which house attributes are most strongly correlated with sale price using data visualizations.
 
-2. **Price Prediction**  
-   Build a model to:
-   - Predict prices for 4 inherited houses.
-   - Predict prices for any house using user inputs.
+2. Price Prediction  
+   - Predict the summed sale price for 4 inherited houses.  
+   - Predict house prices dynamically using user-defined inputs.
 
-3. **User Interface**  
-   Deliver an interactive dashboard (not an API).
+3. Interactive Dashboard  
+   Provide a self-contained dashboard (no API needed) for exploring insights and predicting prices.
 
-4. **Success Criteria**  
-   - Report on key sale price drivers
-   - ML model achieving R² ≥ 0.75 on train and test sets
-   - Sale price predictions for inherited houses
-   - Input-enabled price estimator in dashboard
-
----
-
-## Hypothesis & Validation Strategy
-
-**Hypothesis 1:**  
-Certain features like living area, garage size, and neighborhood are strongly correlated with sale price.
-
-**Validation:**  
-- Pearson Correlation and Predictive Power Score (PPS)
-- Feature-target scatter plots
-
-**Hypothesis 2:**  
-A regression model trained on Housing Prices data can generalize to new houses in the city.
-
-**Validation:**  
-- Train-test split
-- Cross-validation  
-- R², MAE, RMSE evaluation
+4. Success Criteria  
+   - Show key drivers of `SalePrice`  
+   - ML model with R² ≥ 0.75 on both train and test sets  
+   - Display total predicted value of inherited houses  
+   - Enable live user input and instant price prediction
 
 ---
 
-## Mapping Business Case to ML and Visualization Tasks
+## Model Performance
 
-| Business Need | Visualization/ML Task |
-|---------------|------------------------|
-| Identify top price drivers | Correlation heatmaps, PPS plots, scatter plots |
-| Predict prices | Regression modeling with Random Forest, XGBoost, etc. |
-| User input prediction | Streamlit dashboard with form widgets |
-| Communicate insights | Dashboard pages summarizing findings |
+| Metric     | Train Set | Test Set |
+|------------|-----------|----------|
+| R²         | 0.795     | 0.827    |
+| MAE        | 20,899    | 22,541   |
+| RMSE       | 34,937    | 36,396   |
+
+Model performance meets the success benchmark (R² ≥ 0.75).
 
 ---
 
-## ML Business Case Breakdown
+## Hypotheses and Validation
 
-| Model | Objective | Outcome | Metrics | Output | Heuristic | Training Data |
-|-------|-----------|---------|---------|--------|-----------|----------------|
-| Linear Regression | Baseline | Simple relationships | R², MAE | Predicted Price | Interpretability | Cleaned Housing Prices dataset |
-| Random Forest | Robust non-linear modeling | Improved accuracy | R² ≥ 0.75 | Predicted Price | Feature importance | Same |
-| XGBoost | Performance focus | High accuracy | Cross-validated R² | Predicted Price | Boosted trees | Same |
-| (Optional) Neural Net | Experimental | Deep model performance | R², MAE | Predicted Price | Complex patterns | Scaled data |
+| Hypothesis                                                    | Status           |
+|---------------------------------------------------------------|------------------|
+| GrLivArea, OverallQual, GarageArea strongly influence price   | Validated        |
+| More bedrooms lead to higher price                            | Rejected         |
+| Newer homes (YearBuilt) increase value                        | Supported        |
+| Finished basements and garages increase price                 | Validated        |
+
+Validation methods:
+- Pearson correlation and scatter plots
+- Categorical encoding and model testing
+
+---
+
+## Business Mapping to ML and Visualization Tasks
+
+| Business Question                                | ML/Analysis Method                       |
+|--------------------------------------------------|------------------------------------------|
+| What drives house prices?                        | Correlation matrix, scatter plots        |
+| Can we predict inherited home prices?            | Regression modeling                      |
+| How can users predict future prices?             | User-input form with live predictions    |
+| How do we validate assumptions?                  | EDA, hypothesis testing                  |
+
+---
+
+## Machine Learning Models Used
+
+| Model            | Purpose                     | Outcome                       |
+|------------------|-----------------------------|-------------------------------|
+| Linear Regression| Baseline and production model | High accuracy, interpretable |
+| Encoder          | Ordinal categorical handling | BsmtExposure, KitchenQual    |
+
+---
+
+## Feature Engineering Summary
+
+- Winsorization for outlier treatment
+- Log, Box-Cox, and power transformations
+- Ordinal encoding for categorical variables
+- Final cleaned dataset stored in `/outputs/datasets/cleaned/`
 
 ---
 
 ## Dashboard Design (Streamlit)
 
-| Page | Description |
-|------|-------------|
-| Project Summary | Overview, dataset description, client needs |
-| Feature Insights | Correlation matrix, PPS heatmap, scatter plots |
-| Predictions | Inputs for 4 houses, display individual and total predicted prices, user input form |
-| Hypothesis Validation | Show tested hypotheses, validation steps |
-| Technical Report | R², MAE, RMSE, model pipeline, feature importances |
+| Page                        | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| Quick Project Summary       | Overview of dataset and business needs                                      |
+| Feature Correlation Insights| Explore strongest correlations to sale price via charts                     |
+| Inherited House Predictions | View predictions and total estimated price for 4 inherited houses           |
+| Predict Your House Price    | Interactive form to estimate price for a user-defined property              |
+| Hypothesis Validation       | Summary of tested hypotheses and their validation results                   |
+| Technical Report            | Model performance, feature importance, pipeline breakdown                   |
 
 ---
 
-## Summary
+## Project Structure
 
-This project delivers a data-driven, interactive tool that identifies key drivers of home sale prices and enables the client to predict prices for inherited properties and any future real estate transactions.
+```bash
+├── app.py
+├── app_pages/
+│   ├── page_summary.py
+│   ├── page_features_insights.py
+│   ├── page_inherited_predictions.py
+│   ├── page_predict_price.py
+│   ├── page_project_hypothesis.py
+│   └── page_technical_report.py
+├── outputs/
+│   ├── datasets/
+│   │   └── cleaned/
+│   ├── models/
+│   │   └── linear_regression_model.pkl
+│   │   └── ordinal_encoder.pkl
+│   │   └── feature_order.json
+│   └── evaluation/
+│       └── metrics.json

@@ -3,22 +3,20 @@ from app_pages.multipage import MultiPage
 
 # load pages scripts
 from app_pages.page_summary import page_summary_body
-from app_pages.page_churned_customer_study import page_churned_customer_study_body
-from app_pages.page_prospect import page_prospect_body
-from app_pages.page_project_hypothesis import page_project_hypothesis_body
-from app_pages.page_predict_churn import page_predict_churn_body
-from app_pages.page_predict_tenure import page_predict_tenure_body
-from app_pages.page_cluster import page_cluster_body
+from app_pages.page_features_insights import page_correlation_insights_body
+from app_pages.page_inherited_predictions import page_inherited_predictions_body
+from app_pages.page_predict_price import page_predict_price_body
+from app_pages.page_project_hypothesis import page_hypothesis_validation_body
+from app_pages.page_technical_report import page_technical_report_body
 
-app = MultiPage(app_name= "Churnometer") # Create an instance of the app 
+
+app = MultiPage(app_name= "Heritage Housing Issues") # Create an instance of the app 
 
 # Add your app pages here using .add_page()
 app.add_page("Quick Project Summary", page_summary_body)
-app.add_page("Customer Base Churn Study", page_churned_customer_study_body)
-app.add_page("Prospect Churnometer", page_prospect_body)
-app.add_page("Project Hypothesis and Validation", page_project_hypothesis_body)
-app.add_page("ML: Prospect Churn", page_predict_churn_body)
-app.add_page("ML: Prospect Tenure", page_predict_tenure_body)
-app.add_page("ML: Cluster Analysis", page_cluster_body)
-
+app.add_page("Features Insights", page_correlation_insights_body)
+app.add_page("Inherited House Predictions", page_inherited_predictions_body)
+app.add_page("Predict Your House Price", page_predict_price_body)
+app.add_page ("Hypothesis Validation", page_hypothesis_validation_body)
+app.add_page("Technical Report", page_technical_report_body)
 app.run() # Run the  app
