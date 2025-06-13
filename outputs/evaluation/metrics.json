@@ -1,0 +1,8 @@
+{
+    "r2_train": 0.795,
+    "mae_train": 20899,
+    "rmse_train": 34936,
+    "r2_test": 0.827,
+    "mae_test": 22540,
+    "rmse_test": 36396
+}
