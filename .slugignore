@@ -1,1 +1,6 @@
 *.ipynb
+notebooks/
+datasets/
+outputs/models/
+outputs/datasets/
+outputs/eda/
